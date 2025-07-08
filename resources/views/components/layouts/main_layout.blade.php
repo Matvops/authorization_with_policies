@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{{asset('assets/bootstrap/bootstrap.min.css')}}">
 </head>
 <body>
+    @auth
+        <x-user_bar />   
+    @endauth
     {{$content}}
     <script src="{{asset('assets/bootstrap/bootstrap.bundle.min.js')}}"></script>
 </body>
