@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Post;
 use Illuminate\View\View;
 
 class MainController extends Controller
 {
     public function index(): View
     {
-        return view('home');
+        $posts = Post::with('user')->get();
+
+        return view('home', compact('posts'));
     }
 }
