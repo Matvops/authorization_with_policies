@@ -29,7 +29,7 @@ class PostPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return $user->role != 'visitor';
     }
 
     /**
@@ -43,7 +43,7 @@ class PostPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Post $post): bool
+    public function delete(User $user): bool
     {
         return $user->role == 'admin';
     }
