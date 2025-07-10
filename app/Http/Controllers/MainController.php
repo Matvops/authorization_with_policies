@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class MainController extends Controller
@@ -12,5 +13,27 @@ class MainController extends Controller
         $posts = Post::with('user')->get();
 
         return view('home', compact('posts'));
+    }
+
+    public function update($id)
+    {   
+        $post = Post::find($id);
+
+        if(Auth::user()->can('update', $post)) {
+            echo "O usuáro pode atualizar";
+        } else {
+            echo "O usuário não pode atualizar!";
+        }
+    }
+
+    public function delete($id)
+    {
+       $post = Post::find($id);
+
+        if(Auth::user()->can('delete', $post)) {
+            echo "O usuáro pode excluir";
+        } else {
+            echo "O usuário não pode excluir!";
+        }
     }
 }
