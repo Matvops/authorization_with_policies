@@ -7,6 +7,9 @@
         </div>
     @else
     <div class="container">
+        @can('create', App\Models\Post::class)
+            <a href="{{ route('post_create') }}" class="btn btn-large btn-info my-5">Criar post</a>
+        @endcan
         <div class="row">
             <div class="column">
                 @foreach ($posts as $post)
