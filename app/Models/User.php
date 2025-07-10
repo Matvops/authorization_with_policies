@@ -11,4 +11,9 @@ class User extends AuthUser
     {
        return $this->hasMany(Post::class, 'user_id');
     }
+
+    public function permissions(): HasMany
+    {
+        return $this->hasMany(UserPermission::class, 'user_id');
+    }
 }
