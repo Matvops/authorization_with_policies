@@ -15,4 +15,5 @@ Route::middleware('auth')->group(function() {
     Route::get('/home', [MainController::class, 'index'])->name('home');
     Route::get('/post_update/{id}', [MainController::class, 'update'])->name('post_update');
     Route::get('/post_delete/{id}', [MainController::class, 'delete'])->name('post_delete');
+    Route::get('/post_create', [MainController::class, 'create'])->name('post_create');
 });

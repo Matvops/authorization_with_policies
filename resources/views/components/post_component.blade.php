@@ -19,7 +19,7 @@
             <a href="{{ route('post_update', ['id' => $post->id]) }}" class="btn btn-primary">Editar post</a>
         @endcan
 
-        @can('delete', $post)
+        @can('delete', App\Models\Post::class)
             <a href="{{ route('post_delete', ['id' => $post->id]) }}" class="btn btn-danger">Excluir post</a>
         @endcan
     </div>

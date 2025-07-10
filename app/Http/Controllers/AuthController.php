@@ -10,9 +10,12 @@ class AuthController extends Controller
 {
     public function login_user($id): RedirectResponse 
     {
-        $user = User::find($id);
+        /* $user = User::find($id);
         Auth::login($user);
+        return redirect()->route('home'); */
 
+        $user = User::with('permissions')->find($id);
+        Auth::login($user);
         return redirect()->route('home');
     }
 

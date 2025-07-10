@@ -30,10 +30,19 @@ class MainController extends Controller
     {
        $post = Post::find($id);
 
-        if(Auth::user()->can('delete', $post)) {
+        if(Auth::user()->can('delete', Post::class)) {
             echo "O usuáro pode excluir";
         } else {
             echo "O usuário não pode excluir!";
+        }
+    }
+
+    public function create()
+    {
+        if(Auth::user()->can('create', Post::class)) {
+            echo "O usuáro pode criar um post";
+        } else {
+            echo "O usuáro NÃO pode criar um post";
         }
     }
 }
