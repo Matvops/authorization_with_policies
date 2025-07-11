@@ -45,4 +45,13 @@ class MainController extends Controller
             echo "O usuáro NÃO pode criar um post";
         }
     }
+
+    public function forceDelete($id)
+    {
+        if(Auth::user()->can('forceDelete', Post::class)) {
+            echo "O usuário pode excluir permanentemente.";
+        } else {
+            echo "O usuário não pode excluir permanentemente.";            
+        }
+    }
 }
