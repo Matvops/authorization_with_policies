@@ -20,7 +20,11 @@
         @endcan
 
         @can('delete', App\Models\Post::class)
-            <a href="{{ route('post_delete', ['id' => $post->id]) }}" class="btn btn-danger">Excluir post</a>
+            <a href="{{ route('post_delete', ['id' => $post->id]) }}" class="btn btn-warning">Excluir post</a>
+        @endcan
+
+        @can('forceDelete', App\Models\Post::class)
+            <a href="{{ route('post_force_delete', ['id' => $post->id]) }}" class="btn btn-danger">Excluir permanentemente post</a>
         @endcan
     </div>
 </div>
