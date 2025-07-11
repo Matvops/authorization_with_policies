@@ -16,4 +16,5 @@ Route::middleware('auth')->group(function() {
     Route::get('/post_update/{id}', [MainController::class, 'update'])->name('post_update');
     Route::get('/post_delete/{id}', [MainController::class, 'delete'])->name('post_delete');
     Route::get('/post_create', [MainController::class, 'create'])->name('post_create');
+    Route::get('/post_force_delete/{id}', [MainController::class, 'forceDelete'])->name('post_force_delete');
 });
